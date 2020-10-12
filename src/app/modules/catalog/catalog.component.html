@@ -1,0 +1,13 @@
+<h1>Car catalog</h1>
+<mat-list role='list' *ngIf='cars && cars.length; else emptyPlaceholder'>
+    <mat-list-item role='listitem' *ngFor='let car of cars; trackBy: trackByFn'>
+        <app-car-card [car]='car' (action)='onAction($event)'></app-car-card>
+    </mat-list-item>
+</mat-list>
+
+<ng-template #emptyPlaceholder>
+    <h2>No cars have been added yet</h2>
+</ng-template>
+
+
+<mat-spinner *ngIf='loading'></mat-spinner>

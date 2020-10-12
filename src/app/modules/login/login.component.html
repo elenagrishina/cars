@@ -1,0 +1,23 @@
+<form [formGroup]='loginForm'  novalidate='' (ngSubmit)='onSubmit()'>
+    <mat-card class='login-card'>
+        <mat-card-title> Login to catalog </mat-card-title>
+        <mat-card-content>
+            <mat-form-field class='field'>
+                <input matInput placeholder='Email' name='email' formControlName='email' type='email' />
+                <mat-hint>Your email</mat-hint>
+                <mat-error> {{ checkError(emailControl) }} </mat-error>
+            </mat-form-field>
+            <mat-form-field class='field'>
+                <input autocomplete="new-password" matInput placeholder='Password' name='password' formControlName='password' type='password' />
+                <mat-hint>Your password</mat-hint>
+                <mat-error> {{ checkError(passwordControl) }} </mat-error>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button color='primary' class='field' type='submit' [disabled]='loading || loginForm.invalid'>
+                Login
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>
+<mat-spinner *ngIf='loading'></mat-spinner>

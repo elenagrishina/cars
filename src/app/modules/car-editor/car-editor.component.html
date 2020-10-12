@@ -1,0 +1,41 @@
+<form [formGroup]='editForm'  novalidate='' (ngSubmit)='onSubmit()'>
+    <mat-card class='login-card'>
+        <mat-card-title>
+            {{ (car ? 'Update' : 'Add new') + ' car' }}
+        </mat-card-title>
+        <mat-card-content>
+            <mat-form-field class='field'>
+                <input matInput placeholder='Model' name='model' formControlName='model' />
+                <mat-hint>Model</mat-hint>
+                <mat-error> {{ checkError(modelControl) }} </mat-error>
+            </mat-form-field>
+            <mat-form-field class='field'>
+                <input matInput placeholder='Year' name='year' formControlName='year' />
+                <mat-hint>Year</mat-hint>
+                <mat-error> {{ checkError(yearControl) }} </mat-error>
+            </mat-form-field>
+            <mat-form-field class='field'>
+                <input matInput placeholder='Image' name='src' formControlName='src' />
+                <mat-hint>Image (src)</mat-hint>
+                <mat-error> {{ checkError(srcControl) }} </mat-error>
+            </mat-form-field>
+            <mat-form-field class='field'>
+                <input matInput placeholder='Description' name='description' formControlName='description' />
+                <mat-hint>Description</mat-hint>
+                <mat-error> {{ checkError(descriptionControl) }} </mat-error>
+            </mat-form-field>
+
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button color='primary' type='submit' [disabled]='loading || editForm.invalid'>
+                {{ (car ? 'Update' : 'Add') + ' car' }}
+            </button>
+            <button mat-button color='primary' type='button' [disabled]='loading' (click)='onCancel()'>
+                Cancel
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>
+
+<mat-spinner *ngIf='loading'></mat-spinner>

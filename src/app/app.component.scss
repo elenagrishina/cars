@@ -1,0 +1,23 @@
+.app-view {
+    height: calc(100vh - 64px);
+    width: 100vw;
+}
+
+mat-toolbar {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+        margin-left: 15px;
+
+        .active {
+            color: rebeccapurple;
+            font-weight: bold;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+

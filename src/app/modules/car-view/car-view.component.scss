@@ -1,0 +1,15 @@
+.card {
+    max-width: 400px;
+    margin: 30px auto;
+}
+
+mat-spinner {
+    position: absolute;
+    top: calc(50% - 50px);
+    right: calc(50% - 50px);
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: center;
+}

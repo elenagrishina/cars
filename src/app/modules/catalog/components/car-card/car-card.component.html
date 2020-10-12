@@ -1,0 +1,10 @@
+<mat-card (click)='onAction("view")'>
+    <mat-card-header>
+        <img mat-list-icon [src]='car?.src' mat-card-avatar class="header-image" />
+        <div mat-line>{{ car?.model }}</div>
+    </mat-card-header>
+    <mat-card-actions>
+        <button mat-button color='primary' (click)='onAction("delete", $event)'>Delete</button>
+        <button mat-button color='primary' (click)='onAction("update", $event)'>Update</button>
+    </mat-card-actions>
+</mat-card>
